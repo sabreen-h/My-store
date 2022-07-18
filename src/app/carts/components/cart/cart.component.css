@@ -1,0 +1,39 @@
+.container{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin: 50px 0;
+}
+.quantity{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+input{
+    margin: 0 20px;
+   
+    text-align: center;
+}
+
+img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.headCart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+span{
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+span:hover{
+    background-color: rgb(243, 207, 207);
+    color: #fff;
+}

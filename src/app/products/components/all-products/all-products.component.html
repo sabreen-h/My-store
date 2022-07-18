@@ -1,0 +1,21 @@
+<div class="box mt-5">
+
+    <div class="my-2 w-25"><label class="my-1"><h1>Categories:</h1></label>
+        <select class="form-control" (change)="filterCategory($event)" >
+            <option value="all">All Categories</option>
+            <option value="{{i}}" *ngFor="let i of categories">{{i}}</option>  
+        </select>
+    </div>
+
+    <div class="row " >
+        <div class="col-md-3 col-sm=12" *ngFor="let item of products" >
+           <app-product [data]="item"  (item)="addToCart($event)"></app-product>
+        </div>
+    </div>
+
+    <div class="text-center" >
+        <app-spinner></app-spinner>
+    </div>
+
+</div>
+
