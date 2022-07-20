@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CartsService } from '../../services/carts.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +13,7 @@ export class CartComponent implements OnInit {
   total:any=0;
   success:boolean=false
  
-  constructor(private service:CartsService) { }
+  constructor(private service:CartsService , public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getCartProducts()
@@ -72,19 +74,10 @@ addAmount(index:number){
 
 }
 
-addcart(){
-  let Products=this.cartProducts.map(item =>{
-    return {productId:item.item.id , quantity:item.quantity}
-  })
-  let Model= {
-    userId:5,
-    date:new Date(),
-    products: Products
-  }
-  this.service.createNewCart(Model).subscribe((res:any) =>{
-    this.success=true
-  })
-  console.log(Model)
+
+
+openDialog(){
+  this.dialog.open(DialogComponent);
 }
 
 }

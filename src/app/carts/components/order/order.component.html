@@ -1,0 +1,52 @@
+
+<div class="space" ></div>
+
+<div class="container bg-light ">
+
+    <h1>Order Confirmation</h1>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)"> 
+
+   <div class="form-group">
+    <div>    <label>Full Name: </label> </div>
+   
+    <input #name="ngModel"  type="text" class="form-control"  placeholder="(minimum 3 character)" ngModel name="name" id="name" required  >
+
+    <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)" >
+       your name is required
+    </div>
+    </div>
+    
+
+    <div class="form-group">
+        <div><label>Address: </label></div>
+        
+        <input type="text" #address="ngModel" class="form-control" placeholder="(minimum 6 character)" required  ngModel name="address" >
+        <div class="alert alert-danger" *ngIf="address.invalid && (address.dirty || address.touched)" >
+            your name is required
+         </div>
+    </div>
+
+    <div class="form-group">
+        <div> <label>Credit Cart Number: </label> </div>
+       
+        <input #credit="ngModel" type="text"  class="form-control" minlength="16" placeholder="(16-digit number)" required ngModel name="Credit">
+        <div class="alert alert-danger" *ngIf="credit.errors?.['minlength']" >
+           plrese entre valid credit cart number
+         </div>
+    </div>
+
+    <p>we will never share your payment details with any one </p>
+
+    <button type="submit" class="btn btn-primary" (click)=" addCart()" >
+        Submit
+    </button>
+</form>
+
+<div class="alert alert-success mt-5" role="alert" *ngIf="success"><strong>Well done!</strong>your order is successfully send</div>
+
+       
+       
+   
+    
+  
+</div>
